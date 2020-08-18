@@ -9,16 +9,18 @@
     <div class="filter filter-capacity">capacity</div>
     <div class="filter filter-date">date</div>
 
-<!--     <%= form_for(@vehicles[0]) do |f| %>
-      <%= f.label :daily_price %>
-      <%= f.number_field :daily_price %>
-    <%= f.submit %> -->
+    <form action="/vehicles" method="GET">
+      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
+      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
+      <select id="category" name="category">
+        <% Vehicle::CATEGORIES.each do |category| %>
+          <option value="<%= category %>"><%= category %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Apply filter">
+    </form>
 
-    <%= simple_form_for :user, url: vehicles_path do |f| %>
-      <%= f.input :min_price, as: :integer %>
-
-    <% end %>
-  <% end %>
+  </div>
 
   </div>
   <div class="cards">
@@ -34,6 +36,7 @@
         </a>
         <div class="property-description">
           <h5> <%= vehicle.name %> </h5>
+          <p><%= vehicle.category %></p>
           <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
         </div>
         <a href="#">
