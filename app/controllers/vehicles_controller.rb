@@ -11,4 +11,10 @@ class VehiclesController < ApplicationController
   def show
     @vehicle = Vehicle.find(params[:id])
   end
+
+  private
+
+  def article_params
+  params.require(:vehicle).permit(:name, :category, :daily_price, :description, photos: [])
+end
 end
