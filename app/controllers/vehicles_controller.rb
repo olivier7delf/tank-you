@@ -9,5 +9,6 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @vehicle = Vehicle.find(params[:id])
   end
 end
