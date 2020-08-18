@@ -1,0 +1,10 @@
+<%= simple_form_for [ @vehicle, @order ] do |f| %>
+  <%= f.input :name, input_html: { value: @user.name } %>
+  <%= f.input :email, input_html: { value: @user.email } %>
+  <%= f.input :address, input_html: { value: @user.address } %>
+  <%= f.input :phone_number, input_html: { value: @user.phone_number } %>
+  <%= f.input :start_date, as: :date %>
+  <%= f.input :end_date, as: :date %>
+  <%= f.submit "Order now" %>
+<% end %>
+
