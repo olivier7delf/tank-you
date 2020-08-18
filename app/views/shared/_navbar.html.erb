@@ -3,9 +3,9 @@
   <div class="d-flex">
     <% if user_signed_in? %>
       <%= link_to 'Log out', destroy_user_session_path,method: :delete, class: "btn btn-outline-primary my-2 my-sm-0 ml-2"%>
+      <%= link_to 'Vos orders', orders_path %>
     <% else %>
       <%= link_to 'Log in', new_user_session_path, class: "btn btn-outline-primary my-2 my-sm-0 ml-2"%>
-      <%= link_to 'Vos orders', orders_path %>
     <% end %>
   </div>
 </nav>
