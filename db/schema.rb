@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_08_18_134140) do
     t.integer "daily_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "capacity"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

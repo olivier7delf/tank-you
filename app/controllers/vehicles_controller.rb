@@ -5,7 +5,6 @@ class VehiclesController < ApplicationController
 
   def index
     @vehicles = Vehicle.all
-
   end
 
   def show
@@ -15,6 +14,6 @@ class VehiclesController < ApplicationController
   private
 
   def article_params
-  params.require(:vehicle).permit(:name, :category, :daily_price, :description, photos: [])
-end
+    params.require(:vehicle).permit(:name, :category, :daily_price, :description, photos: [])
+  end
 end
