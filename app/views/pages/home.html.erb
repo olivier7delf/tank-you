@@ -1,5 +1,7 @@
-
-<% @categories.each do |cat| %>
-  <%= cat %>
-<% end %>
-
+<div class="cards">
+  <% @categories.each do |cat| %>
+    <div class="card-category" style="background-color: red;">
+      <%= cat %>
+    </div>
+  <% end %>
+</div>
