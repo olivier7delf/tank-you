@@ -83,21 +83,29 @@ users = User.all
 user1 = users[0]
 user2 = users[1]
 
+start_date = Date.today+Random.rand(0..30)
+end_date = start_date+Random.rand(1..30)
+vehicle = Vehicle.all.sample
+total_amount = vehicle.daily_price*(end_date - start_date).to_i
 Order.create!(
-  start_date: Date.today+3,
-  end_date: Date.today+5,
+  start_date: start_date,
+  end_date: end_date,
   user: user1,
-  vehicle: Vehicle.all.sample,
-  )
+  vehicle: vehicle,
+  total_amount: total_amount
+)
 
 10.times do
   start_date = Date.today+Random.rand(0..30)
   end_date = start_date+Random.rand(1..30)
+  vehicle = Vehicle.all.sample
+  total_amount = vehicle.daily_price*(end_date - start_date).to_i
   Order.create!(
     start_date: start_date,
     end_date: end_date,
     user: user2,
-    vehicle: Vehicle.all.sample,
+    vehicle: vehicle,
+    total_amount: total_amount
     )
 end
 
