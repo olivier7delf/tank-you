@@ -46,7 +46,8 @@ puts "Creating vehicles..."
   Vehicle.create!(
     name: Faker::Space.launch_vehicle,
     category: Vehicle::CATEGORIES.sample,
-    daily_price: Faker::Number.between(from: 35, to: 35000)
+    daily_price: Faker::Number.between(from: 35, to: 35000),
+    capacity: Random.rand(1..50)
   )
 end
 
