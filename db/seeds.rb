@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+require "open-uri"
 
 Order.destroy_all
 puts "Orders destroyed!"
@@ -60,23 +61,37 @@ puts "Creating vehicles..."
   )
 end
 
-puts "Creating x-wing..."
-Vehicle.create!(
-  name: "x-wing",
+puts "Creating X-wing..."
+vehicle = Vehicle.new(
+  name: "X-wing",
   category: "espace",
   daily_price: '18000',
-  description: "Le X-wing, est le chasseur stellaire de George Lucas. N'ayant plus d'idée, Johnny Deep a voulu le louer pour Pirates des Caraïbes 6.",
-  capacity: Random.rand(1..50)
+  description: "Le X-wing, est le chasseur stellaire de George Lucas. N'ayant plus d'idée, Johnny Deep a voulu le louer pour Pirates des Caraïbes 6. Maitre Yoda l'a touché en A6, coulé en A8",
+  capacity: '1'
 )
+file0 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753536/xwingt65_imv6_nazpjt.jpg')
+vehicle.photos.attach(io: file0, filename: 'x-wing0.jpg', content_type: 'image/jpg')
+file1 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753599/X_Wing_Starfighter_600_0006.jpgDE8B6D0B-CBBD-4E69-8CE4-E31B237323E6DefaultHQ_py76av.jpg')
+vehicle.photos.attach(io: file1, filename: 'x-wing1.jpg', content_type: 'image/jpg')
+file2 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597754117/maxresdefault_s9dyrv.jpg')
+vehicle.photos.attach(io: file2, filename: 'x-wing2.jpg', content_type: 'image/jpg')
+vehicle.save!
 
 puts "Creating Batmobile..."
-Vehicle.create!(
+vehicle = Vehicle.new(
   name: "Batmobile",
   category: "terre",
   daily_price: '11000',
   description: "La Batmobile est le véhicule de Batman qui est heureux de vous la louer 🙂 et l'homme chauve sourit.",
-  capacity: Random.rand(1..50)
+  capacity: '1'
 )
+file0 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597752884/batmobile-310x165_2x_y2vptn.jpg')
+vehicle.photos.attach(io: file0, filename: 'bat0.jpg', content_type: 'image/jpg')
+file1 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597752780/21f739e872e014a5fb19cd504505a96b_zeontj.jpg')
+vehicle.photos.attach(io: file1, filename: 'bat1.jpg', content_type: 'image/jpg')
+file2 = URI.open('https://images.sudouest.fr/2019/01/23/5c48863366a4bd9d296a4927/widescreen/1000x500/la-batmobile-est-arrivee.jpg?v1')
+vehicle.photos.attach(io: file2, filename: 'bat2.jpg', content_type: 'image/jpg')
+vehicle.save!
 
 puts "Creating orders..."
 users = User.all
