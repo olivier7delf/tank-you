@@ -66,7 +66,7 @@ vehicle = Vehicle.new(
   name: "X-wing",
   category: "espace",
   daily_price: '18000',
-  description: "Le X-wing, est le chasseur stellaire de George Lucas. N'ayant plus d'idée, Johnny Deep a voulu le louer pour Pirates des Caraïbes 6. Maitre Yoda l'a touché en A6, coulé en A8",
+  description: "Le X-wing, est le chasseur stellaire de George Lucas. N'ayant plus d'idée, Johnny Deep a voulu le louer pour Pirates des Caraïbes 6.",
   capacity: '1'
 )
 file0 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753536/xwingt65_imv6_nazpjt.jpg')

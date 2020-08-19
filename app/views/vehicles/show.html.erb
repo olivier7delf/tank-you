@@ -1,37 +1,31 @@
 <div class="container">
 <h2><%= @vehicle.name %></h2>
 
-<p> <%= @vehicle.category %> </p>
+<p>Categorie : <%= @vehicle.category %> </p>
+
 <p>Capacité totale : <%= @vehicle.capacity %> pilote(s)</p>
+<p>Prix location journalière : <%= @vehicle.daily_price %> €</p>
+<br>
 
-
+<p>Description</p>
 <p><%= @vehicle.description %></p>
 
-
-
-  <div class="cards">
-    <div class="card-cat">
-    <% @vehicle.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 200, width: 300, crop: :fill %></div>
-    <br>
-    <% end %>
-
-    <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100" src="https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753536/xwingt65_imv6_nazpjt.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753599/X_Wing_Starfighter_600_0006.jpgDE8B6D0B-CBBD-4E69-8CE4-E31B237323E6DefaultHQ_py76av.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block w-100" src="https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597754117/maxresdefault_s9dyrv.jpg" alt="Third slide">
-        </div>
+          <div class="carousel-item active">
+            <%= cl_image_tag @vehicle.photos[0].key, height: 600, width: 800, crop: :fill %>
+          </div>
+          <% @vehicle.photos[1..-1].each do |photo| %>
+          <div class="carousel-item">
+            <%= cl_image_tag photo.key, height: 600, width: 800, crop: :fill %>
+          </div>
+          <% end %>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -41,9 +35,13 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
-    </div> -->
+    </div>
   </div>
 </div>
 
-<p><%= link_to "🚀 Back to your search 🚀", vehicles_path %></p>
-<%= link_to "🔥 Fais chauffer Marcel! 🔥", new_vehicle_order_path(@vehicle) %>
+<div class="container d-flex justify-content-center" >
+<%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>
+</div>
+<div class="container d-flex justify-content-center" >
+<%= link_to "🔥 GO! 🔥", new_vehicle_order_path(@vehicle), class: "btn btn-warning" %>
+</div>
