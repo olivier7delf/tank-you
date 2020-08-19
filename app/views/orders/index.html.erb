@@ -1,5 +1,14 @@
-<% @orders.each do |order| %>
-  <%= order.vehicle.name %>
-  <%= order.total_amount %>€
-  <br>
-<% end %>
+<h2 class="text-center pt-3">Résumé de mes commandes</h2>
+
+<div class="container">
+  <% @orders.each do |order| %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= order.vehicle.name %></h2>
+        <p><strong><%= order.total_amount %>€</strong></p>
+      </div>
+    </div>
+    <br>
+  <% end %>
+</div>
