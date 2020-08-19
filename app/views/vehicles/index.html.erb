@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="search">
+    My search
+  </div>
+  <div class="filters">
+    <div class="filter filter-price">price</div>
+    <div class="filter filter-capacity">capacity</div>
+    <div class="filter filter-date">date</div>
+
+    <form action="/vehicles" method="GET">
+      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
+      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
+      <select id="category" name="category">
+        <% Vehicle::CATEGORIES.each do |category| %>
+          <option value="<%= category %>"><%= category %></option>
+        <% end %>
+      </select>
+      <input type="submit" value="Apply filter">
+    </form>
+
+  </div>
+
+  </div>
+  <div class="cards">
+    <% @vehicles.each do |vehicle| %>
+      <div class="property-card">
+        <a href="#">
+          <div class="property-image">
+            <div class="property-image-title">
+              <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
+            </div>
+          </div>
+        </a>
+        <div class="property-description">
+          <h5> <%= vehicle.name %> </h5>
+          <p><%= vehicle.category %></p>
+          <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
+        </div>
+
+        <%= link_to vehicle_path(vehicle) do %>
+          <div class="property-social-icons">
+            <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
