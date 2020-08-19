@@ -2,7 +2,7 @@
   padding: 16px;
   height: 50px;
   border-radius: 50px;
-  background-color: red;
+  background-color: $first;
   label, input, select {
     margin-bottom: 0px;
     margin-right: 8px;
@@ -10,7 +10,8 @@
 }
 
 .search-btn {
-  background-color: white;
+  background-color: $second;
+  color: $third;
   padding: 8px 12px;
   border-radius: 50%;
   margin-left: 8px;
