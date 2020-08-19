@@ -4,21 +4,22 @@
     My search
   </div>
   <div class="filters">
-    <div class="filter filter-price">price</div>
-    <div class="filter filter-capacity">capacity</div>
-    <div class="filter filter-date">date</div>
-
     <form action="/vehicles" method="GET">
+      <input type="date" name="start_date" placeholder="<%= Date.today %>" >
+      <input type="date" name="end_date" placeholder="end date: <%= Date.today+1 %>" >
+      <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" >
       <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
       <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
-      <select id="category" name="category">
+      <select id="category" name="category" >
+        <option value="<%= params[:category] %>"><%= params[:category] %></option>
         <% Vehicle::CATEGORIES.each do |category| %>
-          <option value="<%= category %>"><%= category %></option>
+          <% unless category == params[:category] %>
+            <option value="<%= category %>"><%= category %></option>
+          <% end %>
         <% end %>
       </select>
       <input type="submit" value="Apply filter">
     </form>
-
   </div>
 
   </div>

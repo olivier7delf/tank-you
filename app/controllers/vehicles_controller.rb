@@ -5,14 +5,27 @@ class VehiclesController < ApplicationController
 
   def index
     # if params[:min_price]
+    max_capacity = (params[:max_capacity] != "" && params[:max_capacity] !=  nil) ? params[:max_capacity] : 10000
+
     min_price = (params[:min_price] != "" && params[:min_price] !=  nil) ? params[:min_price] : 1
     max_price = (params[:max_price] != "" && params[:max_price] !=  nil) ? params[:max_price] : 2000000
     category = params[:category] || nil
 
+    query_dates = "
+      SELECT *
+      FROM vehicles
+      WHERE id IN (
+        SELECT
+         vehicles_id
+        FROM
+      )
+    "
+
+    query = "capacity <= (?) AND daily_price >= (?) AND daily_price < (?)"
     if category
-      @vehicles = Vehicle.where("category = LOWER((?)) AND daily_price >= (?) AND daily_price < (?)", category, min_price, max_price)
+      @vehicles = Vehicle.where("category = LOWER((?)) AND " + query, category, max_capacity, min_price, max_price)
     else
-      @vehicles = Vehicle.where("daily_price >= (?) AND daily_price < (?)", min_price, max_price)
+      @vehicles = Vehicle.where(query, max_capacity, min_price, max_price)
     end
   end
 
