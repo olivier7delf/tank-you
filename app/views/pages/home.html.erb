@@ -1,3 +1,22 @@
+<br>
+<div class="container d-flex justify-content-center">
+  <form action="/vehicles" method="GET" class="d-flex align-items-center search-form">
+    <label for="start_date" class="">Début:</label>
+    <input type="date" class="form-control form-control-sm" id="start_date">
+    <label for="end_date" class="">Fin:</label>
+    <input type="date" class="form-control form-control-sm" id="end_date">
+    <label for="category" class="">Catégorie:</label>
+    <select id="category" name="category">
+      <% Vehicle::CATEGORIES.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
+    </select>
+    <button type="submit" class="search-btn">
+      <i class="fas fa-search"></i>
+    </button>
+  </form>
+</div>
+<br>
 <div class="cards-area">
   <% @categories.each do |cat| %>
     <div class="card-category" style="background-color: red;">
@@ -5,3 +24,4 @@
     </div>
   <% end %>
 </div>
+

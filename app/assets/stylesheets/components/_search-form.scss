@@ -1,0 +1,18 @@
+.search-form {
+  padding: 16px;
+  height: 50px;
+  border-radius: 50px;
+  background-color: red;
+  label, input, select {
+    margin-bottom: 0px;
+    margin-right: 8px;
+  }
+}
+
+.search-btn {
+  background-color: white;
+  padding: 8px 12px;
+  border-radius: 50%;
+  margin-left: 8px;
+  border: none;
+}
