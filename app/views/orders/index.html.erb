@@ -2,9 +2,9 @@
 
 <div class="container">
   <% @orders.each do |order| %>
-    <div class="card-product">
+    <div class="card-order">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
+      <div class="card-order-infos">
         <h2><%= order.vehicle.name %></h2>
         <p><strong><%= order.total_amount %>€</strong></p>
       </div>
