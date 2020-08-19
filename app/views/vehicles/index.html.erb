@@ -1,4 +1,3 @@
-
 <div class="container">
 
   <div class="search">
@@ -25,7 +24,6 @@
   </div>
   <div class="cards">
     <% @vehicles.each do |vehicle| %>
-
       <div class="property-card">
         <a href="#">
           <div class="property-image">
@@ -39,16 +37,13 @@
           <p><%= vehicle.category %></p>
           <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
         </div>
-        <a href="#">
+
+        <%= link_to vehicle_path(vehicle) do %>
           <div class="property-social-icons">
             <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
           </div>
-        </a>
+        <% end %>
       </div>
-
-
-
-
     <% end %>
   </div>
 </div>
