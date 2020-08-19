@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(user: current_user)
+    @orders = Order.where(user: current_user).order("id DESC")
   end
 
   private
