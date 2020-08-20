@@ -31,15 +31,16 @@
               <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
             </div>
           </div>
+
+          <div class="property-description">
+            <h5> <%= vehicle.name %> </h5>
+            <p><%= vehicle.category %></p>
+            <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
+          </div>
         <% end %>
-        <div class="property-description">
-          <h5> <%= vehicle.name %> </h5>
-          <p><%= vehicle.category %></p>
-          <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
-        </div>
 
-
-          <div class="property-social-icons">
+          <div class="property-social-icons", style="background-color:white">
+            <%= link_to "🚀", new_vehicle_order_path(vehicle) %>
             <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
           </div>
 

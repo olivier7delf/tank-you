@@ -1,53 +1,51 @@
 <div class="container">
-<h2><%= @vehicle.name %></h2>
+  <h2><%= @vehicle.name %></h2>
+  <div class="tmp-carousel">
+    <% if @vehicle.photos[0] == nil %>
+      <%= "Waiting for offical pictures from the owner" %>
+    <% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil || @vehicle.photos[2] == nil %>
+      <%= cl_image_tag @vehicle.photos[0].key, class: "carousel-img" %>
+    <% else %>
+      <div id="carouselExampleIndicators" class="carousel slide carousel-img" data-ride="carousel" >
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
 
-<p>Categorie : <%= @vehicle.category %> </p>
-
-<p>Capacité totale : <%= @vehicle.capacity %> pilote(s)</p>
-<p>Prix location journalière : <%= @vehicle.daily_price %> €</p>
-<br>
-
-<p>Description</p>
-<p><%= @vehicle.description %></p>
-
-<% if @vehicle.photos[0] == nil %>
-  <%= "Waiting for offical pictures from the owner" %>
-  <% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil || @vehicle.photos[2] == nil %>
-  <%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
-   <% else %>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-
-      <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
-          </div>
-          <% @vehicle.photos[1..-1].each do |photo| %>
-          <div class="carousel-item">
-            <%= cl_image_tag photo.key, height: 500, width: 750, crop: :fill %>
-          </div>
-          <% end %>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+              <%= cl_image_tag @vehicle.photos[0].key, class: "carousel-img" %>
+            </div>
+            <% @vehicle.photos[1..-1].each do |photo| %>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, class: "carousel-img" %>
+              </div>
+            <% end %>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+    <% end %>
   </div>
-  </div>
-<% end %>
 
-<div class="container d-flex justify-content-center" >
-<%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>
-</div>
-<div class="container d-flex justify-content-center" >
-<%= link_to "🔥 GO! 🔥", new_vehicle_order_path(@vehicle), class: "btn btn-warning" %>
+  <p>Capacité totale : <%= @vehicle.capacity %> pilote(s)</p>
+  <p>Prix location journalière : <%= @vehicle.daily_price %> €</p>
+  <p>Description</p>
+  <p><%= @vehicle.description %></p>
+
+  <p>Categorie : <%= @vehicle.category %> </p>
+
+  <div class="container d-flex justify-content-center" >
+    <%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>
+  </div>
+  <div class="container d-flex justify-content-center" >
+    <%= link_to "🔥 GO! 🔥", new_vehicle_order_path(@vehicle), class: "btn btn-warning" %>
+  </div>
 </div>

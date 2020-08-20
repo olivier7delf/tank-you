@@ -71,7 +71,7 @@
 
   .property-image
   {
-    height:6em;
+    height:16em;
     width:14em;
     padding:1em 2em;
     position:Absolute;
@@ -90,7 +90,7 @@
   {
     color: $second;
     background-color: #FAFAFC;
-    height:12em;
+    height:4em;
     width:14em;
     position:absolute;
     bottom:0em;
@@ -120,12 +120,12 @@
 
   .property-card:hover .property-description
   {
-    height:0em;
+    height:8em;
     padding:0px 1em;
   }
   .property-card:hover .property-image
   {
-    height:18em;
+    height:10em;
   }
 
   .property-card:hover .property-social-icons
