@@ -10,11 +10,10 @@
 <p>Description</p>
 <p><%= @vehicle.description %></p>
 
-
 <% if @vehicle.photos[0] == nil %>
-        <%= "Waiting for offical pictures from the owner" %>
-<% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil %>
-<%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
+  <%= "Waiting for offical pictures from the owner" %>
+  <% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil || @vehicle.photos[2] == nil %>
+  <%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
    <% else %>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -43,7 +42,7 @@
       </a>
     </div>
   </div>
-</div>
+  </div>
 <% end %>
 
 <div class="container d-flex justify-content-center" >
