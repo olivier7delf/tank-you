@@ -10,6 +10,12 @@
 <p>Description</p>
 <p><%= @vehicle.description %></p>
 
+
+<% if @vehicle.photos[0] == nil %>
+        <%= "Waiting for offical pictures from the owner" %>
+<% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil %>
+<%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
+   <% else %>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -19,11 +25,11 @@
 
       <div class="carousel-inner">
           <div class="carousel-item active">
-            <%= cl_image_tag @vehicle.photos[0].key, height: 600, width: 800, crop: :fill %>
+            <%= cl_image_tag @vehicle.photos[0].key, height: 500, width: 750, crop: :fill %>
           </div>
           <% @vehicle.photos[1..-1].each do |photo| %>
           <div class="carousel-item">
-            <%= cl_image_tag photo.key, height: 600, width: 800, crop: :fill %>
+            <%= cl_image_tag photo.key, height: 500, width: 750, crop: :fill %>
           </div>
           <% end %>
       </div>
@@ -38,6 +44,7 @@
     </div>
   </div>
 </div>
+<% end %>
 
 <div class="container d-flex justify-content-center" >
 <%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>
