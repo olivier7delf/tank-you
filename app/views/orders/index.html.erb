@@ -3,7 +3,7 @@
 <div class="container">
   <% @orders.each do |order| %>
     <div class="card-order">
-      <%#= cl_image_tag order.vehicle.photos[0].key %>
+      <%= cl_image_tag order.vehicle.photos[0].key %>
       <div class="card-order-infos">
         <h2><%= order.vehicle.name %></h2>
         <p><strong><%= order.total_amount %>€</strong></p>

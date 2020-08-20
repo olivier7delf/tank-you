@@ -1,7 +1,14 @@
 .cards-area {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 40px;
+  margin: 50px 100px;
+  a {
+    text-decoration: none;
+    &:hover {
+      opacity: 0.85;
+    }
+  }
   .card-category {
     background-size: cover;
     background-position: center;
