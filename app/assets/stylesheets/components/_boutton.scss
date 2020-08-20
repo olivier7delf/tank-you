@@ -1,0 +1,10 @@
+.bouton {
+    padding: 8px 47px;
+    border-radius: 40px;
+    background: $first;
+    color: $second;
+    &:hover {
+      color: $first;
+      background: $second;
+    }
+}
