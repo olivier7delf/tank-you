@@ -2,19 +2,43 @@
 
   <div class="d-flex align-items-center search-form search-filter">
     <form action="/vehicles" method="GET" class="d-flex align-items-center search-form search-filter">
-      <input type="date" name="start_date" placeholder="<%= Date.today %>" >
-      <input type="date" name="end_date" placeholder="end date: <%= Date.today+1 %>" >
-      <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" >
-      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
-      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
-      <select id="category" name="category" >
-        <option value="<%= params[:category] %>"><%= params[:category] %></option>
-        <% Vehicle::CATEGORIES.each do |category| %>
-          <% unless category == params[:category] %>
-            <option value="<%= category %>"><%= category %></option>
+
+
+      <div class="search-filter-one">
+        <label for="range_datepickr">Dates</label>
+        <input type="date" name="range_datepickr" placeholder="dates" class="datepickr datepickr-corr" data-params=<%= params %>>
+      </div>
+
+      <div class="search-filter-one">
+        <label for="max_capacity">Participants</label>
+        <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" value="<%= params[:max_capacity] || 10000 %>" =>
+      </div>
+
+      <div class="search-filter-one">
+        <label for="min_price">Prix min</label>
+        <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" value="<%= params[:min_price] || 1 %>" >
+      </div>
+
+      <div class="search-filter-one">
+        <label for="max_price">Prix</label>
+        <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" value="<%= params[:max_price] || 100000 %>" >
+      </div>
+
+      <div class="search-filter-one">
+        <label for="category">Category</label>
+        <select id="category" name="category" >
+          <option value="<%= params[:category] %>"><%= params[:category] %></option>
+          <% Vehicle::CATEGORIES.each do |category| %>
+            <% unless category == params[:category] %>
+              <option class="option-displayed" value="<%= category %>"><%= category %></option>
+            <% end %>
           <% end %>
-        <% end %>
-      </select>
+        </select>
+      </div>
+
+
+
+
       <button type="submit" class="search-btn">
         <i class="fas fa-search"></i>
       </button>

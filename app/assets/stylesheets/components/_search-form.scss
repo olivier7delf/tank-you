@@ -23,9 +23,34 @@
 
 .search-filter {
   margin: 0 auto;
-  height: 80px;
+  height: 60px;
   input {
     width: 88px;
     font-size: 12px;
   }
+}
+
+.search-filter-one {
+  margin: 5px;
+  border-radius: 10px;
+  color: black;
+  line-height: .9;
+  font-size: 12px;
+  font-weight: bold;
+  input, select {
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+    color: grey;
+    font-weight: lighter;
+    &:hover {
+      font-weight: bold;
+    }
+    option {
+      background-color: $first;
+      border: none;
+    }
+  }
+
+
 }
