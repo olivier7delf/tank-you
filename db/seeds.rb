@@ -58,6 +58,7 @@ file2 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597754117/
 vehicle.photos.attach(io: file2, filename: 'x-wing2.jpg', content_type: 'image/jpg')
 vehicle.save!
 puts "Creating Batmobile..."
+
 vehicle = Vehicle.new(
   name: "Batmobile",
   category: "terre",
