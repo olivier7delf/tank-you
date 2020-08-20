@@ -10,7 +10,6 @@
 <p>Description</p>
 <p><%= @vehicle.description %></p>
 
-
 <% if @vehicle.photos[0] == nil %>
         <%= "Waiting for offical pictures from the owner" %>
 <% elsif @vehicle.photos[0] && @vehicle.photos[1] == nil || @vehicle.photos[2] == nil %>
@@ -44,7 +43,6 @@
     </div>
   </div>
 </div>
-<% end %>
 
 <div class="container d-flex justify-content-center" >
 <%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>

@@ -22,7 +22,6 @@
   </div>
 
   </div>
-  <br>
   <div class="cards">
     <% @vehicles.each do |vehicle| %>
       <div class="property-card">
@@ -36,7 +35,7 @@
         <div class="property-description">
           <h5> <%= vehicle.name %> </h5>
           <p><%= vehicle.category %></p>
-          <p>Maximum : <%= vehicle.capacity %> personne(s), <%= vehicle.daily_price %> €</p>
+          <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
         </div>
 
 
