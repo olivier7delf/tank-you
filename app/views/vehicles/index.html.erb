@@ -2,11 +2,10 @@
 
   <div class="d-flex align-items-center search-form search-filter">
     <form action="/vehicles" method="GET" class="d-flex align-items-center search-form search-filter">
-      <input type="date" name="start_date" placeholder="<%= Date.today %>" >
-      <input type="date" name="end_date" placeholder="end date: <%= Date.today+1 %>" >
-      <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" >
-      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
-      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
+      <input type="date" name="range_datepickr" placeholder="dates" class="datepickr" data-params=<%= params %>>
+      <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" value="<%= params[:max_capacity] || 10000 %>" =>
+      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" value="<%= params[:min_price] || 1 %>" >
+      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" value="<%= params[:max_price] || 100000 %>" >
       <select id="category" name="category" >
         <option value="<%= params[:category] %>"><%= params[:category] %></option>
         <% Vehicle::CATEGORIES.each do |category| %>
