@@ -73,7 +73,6 @@ vehicle.photos.attach(io: file1, filename: 'bat1.jpg', content_type: 'image/jpg'
 file2 = URI.open('https://images.sudouest.fr/2019/01/23/5c48863366a4bd9d296a4927/widescreen/1000x500/la-batmobile-est-arrivee.jpg?v1')
 vehicle.photos.attach(io: file2, filename: 'bat2.jpg', content_type: 'image/jpg')
 vehicle.save!
-
 puts "Creating orders..."
 users = User.all
 user1 = users[0]
