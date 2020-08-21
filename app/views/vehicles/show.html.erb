@@ -48,4 +48,28 @@
   <div class="container d-flex justify-content-center" >
     <%= link_to "🔥 GO! 🔥", new_vehicle_order_path(@vehicle), class: "btn btn-warning" %>
   </div>
+
+<h2>
+  <%= pluralize @vehicle.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @vehicle.reviews.blank? %>
+    Be the first to leave a review for <%= @vehicle.name %>
+  <% else %>
+    <% @vehicle.reviews.each do |review| %>
+      <div class="review">
+        <%= review.username %> - <%= "⭐" * review.rating%><%= "☆" * (5 - review.rating) %>
+        <p id="review-<%= review.id %>"><%= review.comment %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= simple_form_for([ @vehicle, @review ]) do |f| %>
+  <%= f.input :comment, as: :text %>
+  <%= f.input :rating, as: :integer %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
 </div>

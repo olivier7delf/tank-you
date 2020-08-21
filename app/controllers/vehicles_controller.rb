@@ -36,6 +36,8 @@ class VehiclesController < ApplicationController
 
   def show
     @vehicle = Vehicle.find(params[:id])
+    @review = Review.new
+    @user = current_user
   end
 
   private

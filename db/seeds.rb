@@ -11,8 +11,15 @@ Order.destroy_all
 puts "Orders destroyed!"
 User.destroy_all
 puts "Users destroyed!"
+Review.destroy_all
+puts "Reviews destroyed!"
 Vehicle.destroy_all
 puts "Vehicles destroyed!"
+
+
+mode_prod = true
+nb_reviews = mode_prod ? 250 : 25
+
 puts "Creating users..."
 User.create!(
   name: "Margot",
@@ -121,177 +128,194 @@ vehicle = Vehicle.new(
   description: "_",
   capacity: '1'
 )
-file0 = URI.open('https://letiroirajeux.fr/wp-content/uploads/2020/07/76F18261-2BB4-4B9E-9775-5CC8F878C257-800x445.jpeg')
-vehicle.photos.attach(io: file0, filename: 'IronMan.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Sous-Marin Nucléaire..."
-vehicle = Vehicle.new(
-  name: "Sous-Marin Nucléaire",
-  category: "mer",
-  daily_price: '99000',
-  description: "_",
-  capacity: '52'
-)
-file0 = URI.open('https://www.meretmarine.com/objets/4231.jpg')
-vehicle.photos.attach(io: file0, filename: 'SMN.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating La Santa-Maria..."
-vehicle = Vehicle.new(
-  name: "La Santa-Maria",
-  category: "mer",
-  daily_price: '600',
-  description: "_",
-  capacity: '25'
-)
-file0 = URI.open('https://www.actu-direct.fr/rep/rep_article/2018-07-12_080546_DSCN0282.JPG')
-vehicle.photos.attach(io: file0, filename: 'CLSM.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Char Leclerc..."
-vehicle = Vehicle.new(
-  name: "Char Leclerc",
-  category: "terre",
-  daily_price: '15000',
-  description: "_",
-  capacity: '3'
-)
-file0 = URI.open('https://www.guer-coetquidan-broceliande.fr/bisto/coet/campchars/leclerc_3.jpg')
-vehicle.photos.attach(io: file0, filename: 'Leclerc.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Char Panzer..."
-vehicle = Vehicle.new(
-  name: "Char Panzer",
-  category: "terre",
-  daily_price: '10000',
-  description: "_",
-  capacity: '4'
-)
-file0 = URI.open('https://upload.wikimedia.org/wikipedia/commons/a/ac/PzIV.Saumur.000a5s6s.jpg')
-vehicle.photos.attach(io: file0, filename: 'Panzer.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Supermarine Spitfire..."
-vehicle = Vehicle.new(
-  name: "Spitfire",
-  category: "air",
-  daily_price: '1000',
-  description: "_",
-  capacity: '2'
-)
-file0 = URI.open('https://cdn-3d.niceshops.com/upload/image/product/large/default/revell-supermarine-spitfire-mkiia-1-pcs-304157-fr.jpg')
-vehicle.photos.attach(io: file0, filename: 'Spitfire.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating HoverBoard Green Goblin..."
-vehicle = Vehicle.new(
-  name: "HoverBoard Green Goblin",
-  category: "air",
-  daily_price: '12000',
-  description: "_",
-  capacity: '1'
-)
-file0 = URI.open('https://bradenkelley.com/wp-content/uploads/2018/03/Green-Goblin-Flying-1024x844.jpg')
-vehicle.photos.attach(io: file0, filename: 'Hoverboard.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Rafale..."
-vehicle = Vehicle.new(
-  name: "Rafale",
-  category: "air",
-  daily_price: '30000',
-  description: "_",
-  capacity: '2'
-)
-file0 = URI.open('https://images.dassault-aviation.com/f_auto,q_auto,g_center,dpr_auto/wp-auto-upload/1/files/2017/10/DA00016390_Si.jpg')
-vehicle.photos.attach(io: file0, filename: 'Rafale.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Nautilus..."
-vehicle = Vehicle.new(
-  name: "Nautilus",
-  category: "mer",
-  daily_price: '5000',
-  description: "_",
-  capacity: '40'
-)
-file0 = URI.open('https://i.pinimg.com/originals/a4/f1/1e/a4f11e009c003e76e8043fc9cf7ab6d8.jpg')
-vehicle.photos.attach(io: file0, filename: 'Nautilus.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Porte-Avion..."
-vehicle = Vehicle.new(
-  name: "Porte-Avion",
-  category: "mer",
-  daily_price: '200000',
-  description: "_",
-  capacity: '2000'
-)
-file0 = URI.open('https://www.meretmarine.com/sites/default/files/styles/mem_1000/public/new_objets_drupal/cdg2_2.jpg')
-vehicle.photos.attach(io: file0, filename: 'Porteavion.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Executor class Super Destroyer..."
-vehicle = Vehicle.new(
-  name: "Executor class Super Star Destroyer",
-  category: "espace",
-  daily_price: '200000',
-  description: "_",
-  capacity: '2000'
-)
-file0 = URI.open('https://vignette.wikia.nocookie.net/starwars/images/3/30/Executor_BF2.png/revision/latest?cb=20180903230846')
-vehicle.photos.attach(io: file0, filename: 'Superdestroyer.jpg', content_type: 'image/png')
-vehicle.save!
-puts "Creating Bubblebee..."
-vehicle = Vehicle.new(
-  name: "Bubblebee",
-  category: "terre",
-  daily_price: '54000',
-  description: "_",
-  capacity: '5'
-)
-file0 = URI.open('https://images7.alphacoders.com/517/517778.jpg')
-vehicle.photos.attach(io: file0, filename: 'Bubblebee.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Etoile Noire..."
-vehicle = Vehicle.new(
-  name: "Etoile Noire",
-  category: "espace",
-  daily_price: '35400',
-  description: "_",
-  capacity: '1500'
-)
-file0 = URI.open('https://media.anakinworld.com/uploads/entries/original/vaisseau-etoile-noire-i.jpg')
-vehicle.photos.attach(io: file0, filename: 'EtoileNoire.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Tigre..."
-vehicle = Vehicle.new(
-  name: "Tigre",
-  category: "air",
-  daily_price: '6000',
-  description: "_",
-  capacity: '1'
-)
-file0 = URI.open('https://www.helicopassion.com/images/TIGR/Espagne/PRADA89h.jpg')
-vehicle.photos.attach(io: file0, filename: 'Tigre.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Cheval Blanc d'Henri IV..."
-vehicle = Vehicle.new(
-  name: "Cheval Blanc d'Henri IV",
-  category: "terre",
-  daily_price: '20',
-  description: "_",
-  capacity: '1'
-)
 
-file0 = URI.open('https://p6.storage.canalblog.com/68/62/1309854/106788352_o.jpg')
-vehicle.photos.attach(io: file0, filename: 'ChevalBlanc.jpg', content_type: 'image/jpg')
-vehicle.save!
-puts "Creating Char Tesla..."
-vehicle = Vehicle.new(
-  name: "Char Tesla",
-  category: "terre",
-  daily_price: '3000',
-  description: "_",
-  capacity: '5'
-)
-file0 = URI.open('https://alerte-rouge.e-monsite.com/medias/album/images/38630828ps3-command-et-conquer-red-alert-3-1212412153-9-1-jpg.jpg')
-vehicle.photos.attach(io: file0, filename: 'Tesla.jpg', content_type: 'image/jpg')
-vehicle.save!
+if mode_prod
+  file0 = URI.open('https://letiroirajeux.fr/wp-content/uploads/2020/07/76F18261-2BB4-4B9E-9775-5CC8F878C257-800x445.jpeg')
+  vehicle.photos.attach(io: file0, filename: 'IronMan.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Sous-Marin Nucléaire..."
+  vehicle = Vehicle.new(
+    name: "Sous-Marin Nucléaire",
+    category: "mer",
+    daily_price: '99000',
+    description: "_",
+    capacity: '52'
+  )
+  file0 = URI.open('https://www.meretmarine.com/objets/4231.jpg')
+  vehicle.photos.attach(io: file0, filename: 'SMN.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating La Santa-Maria..."
+  vehicle = Vehicle.new(
+    name: "La Santa-Maria",
+    category: "mer",
+    daily_price: '600',
+    description: "_",
+    capacity: '25'
+  )
+  file0 = URI.open('https://www.actu-direct.fr/rep/rep_article/2018-07-12_080546_DSCN0282.JPG')
+  vehicle.photos.attach(io: file0, filename: 'CLSM.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Char Leclerc..."
+  vehicle = Vehicle.new(
+    name: "Char Leclerc",
+    category: "terre",
+    daily_price: '15000',
+    description: "_",
+    capacity: '3'
+  )
+  file0 = URI.open('https://www.guer-coetquidan-broceliande.fr/bisto/coet/campchars/leclerc_3.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Leclerc.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Char Panzer..."
+  vehicle = Vehicle.new(
+    name: "Char Panzer",
+    category: "terre",
+    daily_price: '10000',
+    description: "_",
+    capacity: '4'
+  )
+  file0 = URI.open('https://upload.wikimedia.org/wikipedia/commons/a/ac/PzIV.Saumur.000a5s6s.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Panzer.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Supermarine Spitfire..."
+  vehicle = Vehicle.new(
+    name: "Spitfire",
+    category: "air",
+    daily_price: '1000',
+    description: "_",
+    capacity: '2'
+  )
+  file0 = URI.open('https://cdn-3d.niceshops.com/upload/image/product/large/default/revell-supermarine-spitfire-mkiia-1-pcs-304157-fr.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Spitfire.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating HoverBoard Green Goblin..."
+  vehicle = Vehicle.new(
+    name: "HoverBoard Green Goblin",
+    category: "air",
+    daily_price: '12000',
+    description: "_",
+    capacity: '1'
+  )
+  file0 = URI.open('https://bradenkelley.com/wp-content/uploads/2018/03/Green-Goblin-Flying-1024x844.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Hoverboard.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Rafale..."
+  vehicle = Vehicle.new(
+    name: "Rafale",
+    category: "air",
+    daily_price: '30000',
+    description: "_",
+    capacity: '2'
+  )
+  file0 = URI.open('https://images.dassault-aviation.com/f_auto,q_auto,g_center,dpr_auto/wp-auto-upload/1/files/2017/10/DA00016390_Si.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Rafale.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Nautilus..."
+  vehicle = Vehicle.new(
+    name: "Nautilus",
+    category: "mer",
+    daily_price: '5000',
+    description: "_",
+    capacity: '40'
+  )
+  file0 = URI.open('https://i.pinimg.com/originals/a4/f1/1e/a4f11e009c003e76e8043fc9cf7ab6d8.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Nautilus.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Porte-Avion..."
+  vehicle = Vehicle.new(
+    name: "Porte-Avion",
+    category: "mer",
+    daily_price: '200000',
+    description: "_",
+    capacity: '2000'
+  )
+  file0 = URI.open('https://www.meretmarine.com/sites/default/files/styles/mem_1000/public/new_objets_drupal/cdg2_2.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Porteavion.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Executor class Super Destroyer..."
+  vehicle = Vehicle.new(
+    name: "Executor class Super Star Destroyer",
+    category: "espace",
+    daily_price: '200000',
+    description: "_",
+    capacity: '2000'
+  )
+  file0 = URI.open('https://vignette.wikia.nocookie.net/starwars/images/3/30/Executor_BF2.png/revision/latest?cb=20180903230846')
+  vehicle.photos.attach(io: file0, filename: 'Superdestroyer.jpg', content_type: 'image/png')
+  vehicle.save!
+  puts "Creating Bubblebee..."
+  vehicle = Vehicle.new(
+    name: "Bubblebee",
+    category: "terre",
+    daily_price: '54000',
+    description: "_",
+    capacity: '5'
+  )
+  file0 = URI.open('https://images7.alphacoders.com/517/517778.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Bubblebee.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Etoile Noire..."
+  vehicle = Vehicle.new(
+    name: "Etoile Noire",
+    category: "espace",
+    daily_price: '35400',
+    description: "_",
+    capacity: '1500'
+  )
+  file0 = URI.open('https://media.anakinworld.com/uploads/entries/original/vaisseau-etoile-noire-i.jpg')
+  vehicle.photos.attach(io: file0, filename: 'EtoileNoire.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Tigre..."
+  vehicle = Vehicle.new(
+    name: "Tigre",
+    category: "air",
+    daily_price: '6000',
+    description: "_",
+    capacity: '1'
+  )
+  file0 = URI.open('https://www.helicopassion.com/images/TIGR/Espagne/PRADA89h.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Tigre.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Cheval Blanc d'Henri IV..."
+  vehicle = Vehicle.new(
+    name: "Cheval Blanc d'Henri IV",
+    category: "terre",
+    daily_price: '20',
+    description: "_",
+    capacity: '1'
+  )
+
+  file0 = URI.open('https://p6.storage.canalblog.com/68/62/1309854/106788352_o.jpg')
+  vehicle.photos.attach(io: file0, filename: 'ChevalBlanc.jpg', content_type: 'image/jpg')
+  vehicle.save!
+  puts "Creating Char Tesla..."
+  vehicle = Vehicle.new(
+    name: "Char Tesla",
+    category: "terre",
+    daily_price: '3000',
+    description: "_",
+    capacity: '5'
+  )
+  file0 = URI.open('https://alerte-rouge.e-monsite.com/medias/album/images/38630828ps3-command-et-conquer-red-alert-3-1212412153-9-1-jpg.jpg')
+  vehicle.photos.attach(io: file0, filename: 'Tesla.jpg', content_type: 'image/jpg')
+  vehicle.save!
+end
 
 
+beg = ["Wooooaaa ! ", "Enorme  !! ", "J'ai vomi !!! ", "Apprendre ou a laisser ! ", "C'est pas au que vous verrez ca ! ", "Ni au zoo ma couille !"]
+middle = ["une expérience unique", "un truc qu'on pas, sauf si on bois pas mal !", "ca vaut bien une claque !", "La  haine mène à la coleur", "Wesh !!"]
+
+
+25.times  {
+  u = User.all.sample()
+  v = Vehicle.all.sample()
+  r = Review.create(
+    comment: beg.sample() + middle.sample(),
+    rating: Random.rand(3..5),
+    username: u.name,
+    vehicle: v
+    )
+}
 
 
 # urls = [
