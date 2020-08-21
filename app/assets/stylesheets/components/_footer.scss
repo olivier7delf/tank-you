@@ -1,4 +1,9 @@
 .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
   background: #F4F4F4;
   display: flex;
   align-items: center;
