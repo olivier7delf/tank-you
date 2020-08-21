@@ -1,19 +1,22 @@
-<nav class="navbar d-flex justify-content-between navbar-light bg-light" style="background-color: #FF9100 !important;">
-  <a class="navbar-brand" href="/" style="background-image: url('https://previews.123rf.com/images/sudowoodo/sudowoodo1705/sudowoodo170500039/79016933-stylized-cartoon-tank-logo-or-icon-isolated-black-and-white-army-vehicle-vector-illustration-.jpg'); height:70px;width:70px; background-size:cover;"></a>
-  <div class="d-flex">
-    <% if user_signed_in? %>
-      <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #27313F !important; border: none;">
-          My menu
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <%= link_to 'Mes commandes', orders_path, class:"dropdown-item" %>
-          <%= link_to 'Voir les véhicules', vehicles_path, class:"dropdown-item" %>
+<% color = action_name == 'home' && controller_name == 'pages' ? 'transparent' : '#051738' %>
+<div class="wrapper">
+  <nav class="navbar navbar-light" style="background-color: <%= color %> !important;">
+    <a class="navbar-logo" href="/" style="background-image: url('logo.png'); height:70px;width:70px; background-size:cover; z-index: 6;"></a>
+    <div class="d-flex">
+      <% if user_signed_in? %>
+        <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #27313F !important; border: none;">
+            My menu
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <%= link_to 'Mes commandes', orders_path, class:"dropdown-item" %>
+            <%= link_to 'Voir les véhicules', vehicles_path, class:"dropdown-item" %>
+          </div>
         </div>
-      </div>
-      <%= link_to 'Log out', destroy_user_session_path,method: :delete, class: "btn btn-secondary my-2 my-sm-0 ml-2" %>
-    <% else %>
-      <%= link_to 'Log in', new_user_session_path, class: "btn btn-secondary my-2 my-sm-0 ml-2"%>
-    <% end %>
-  </div>
-</nav>
+        <%= link_to 'Log out', destroy_user_session_path,method: :delete, class: "bouton" %>
+      <% else %>
+        <%= link_to 'Log in', new_user_session_path, class: "bouton"%>
+      <% end %>
+    </div>
+  </nav>
+</div>

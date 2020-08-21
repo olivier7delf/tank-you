@@ -1,26 +1,38 @@
 <div class="container">
-
-  <div class="d-flex align-items-center search-form search-filter">
-    <form action="/vehicles" method="GET" class="d-flex align-items-center search-form search-filter">
-      <input type="date" name="start_date" placeholder="<%= Date.today %>" >
-      <input type="date" name="end_date" placeholder="end date: <%= Date.today+1 %>" >
-      <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" >
-      <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" >
-      <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" >
-      <select id="category" name="category" >
-        <option value="<%= params[:category] %>"><%= params[:category] %></option>
-        <% Vehicle::CATEGORIES.each do |category| %>
-          <% unless category == params[:category] %>
-            <option value="<%= category %>"><%= category %></option>
+  <div >
+    <form action="/vehicles" method="GET" class="d-flex align-items-center align-items-center search-form search-filter">
+      <div class="search-one">
+        <label for="range_datepickr">Dates</label>
+        <input type="date" id="search-date" name="range_datepickr" placeholder="<%= params[:range_datepickr] ? params[:range_datepickr] : "dates" %>" class="datepickr datepickr-corr">
+      </div>
+      <div class="search-one">
+        <label for="max_capacity">Participants</label>
+        <input type="integer" name="max_capacity" placeholder="max invités: <%= params[:max_capacity] || 10000 %>" value="<%= params[:max_capacity] || 10000 %>" =>
+      </div>
+      <div class="search-one">
+        <label for="min_price">Prix min</label>
+        <input type="integer" name="min_price" placeholder="min: <%= params[:min_price] || 1 %> €" value="<%= params[:min_price] || 1 %>" >
+      </div>
+      <div class="search-one">
+        <label for="max_price">Prix</label>
+        <input type="integer" name="max_price" placeholder="max: <%= params[:max_price] || 100000 %> €" value="<%= params[:max_price] || 100000 %>" >
+      </div>
+      <div class="search-one">
+        <label for="category">Category</label>
+        <select id="category" name="category" >
+          <option value="<%= params[:category] %>"><%= params[:category] %></option>
+          <% Vehicle::CATEGORIES.each do |category| %>
+            <% unless category == params[:category] %>
+              <option class="option-displayed" value="<%= category %>"><%= category %></option>
+            <% end %>
           <% end %>
-        <% end %>
-      </select>
+          <option value=""></option>
+        </select>
+      </div>
       <button type="submit" class="search-btn">
         <i class="fas fa-search"></i>
       </button>
     </form>
-  </div>
-
   </div>
   <div class="cards">
     <% @vehicles.each do |vehicle| %>
@@ -31,15 +43,23 @@
               <!-- Optional <h5>Card Title</h5> If you want it, turn on the CSS also. -->
             </div>
           </div>
-        <% end %>
         <div class="property-description">
           <h5> <%= vehicle.name %> </h5>
           <p><%= vehicle.category %></p>
-          <p>Up to <%= vehicle.capacity %> people, <%= vehicle.daily_price %> €</p>
+          <p>Maximum : <%= vehicle.capacity %> personne(s), <%= vehicle.daily_price %> €</p>
         </div>
+        <% end %>
 
-
-          <div class="property-social-icons">
+          <div class="property-social-icons", style="background-color:white">
+            <% if vehicle.category == "espace" %>
+              <h3> <%= link_to "🛸", new_vehicle_order_path(vehicle) %> </h3>
+            <% elsif vehicle.category == "mer" %>
+              <h3> <%= link_to "⛵️", new_vehicle_order_path(vehicle) %> </h3>
+            <% elsif vehicle.category == "terre" %>
+              <h3> <%= link_to "🚒", new_vehicle_order_path(vehicle) %> </h3>
+            <% else vehicle.category == "air" %>
+              <h3> <%= link_to "🚁", new_vehicle_order_path(vehicle) %> </h3>
+            <% end %>
             <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
           </div>
 

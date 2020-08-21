@@ -10,7 +10,9 @@ class VehiclesController < ApplicationController
     min_price = (params[:min_price] != "" && params[:min_price] !=  nil) ? params[:min_price] : 1
     max_price = (params[:max_price] != "" && params[:max_price] !=  nil) ? params[:max_price] : 2000000
     category = params[:category] || nil
-
+    # start_date = params[:range_datepickr].split(' to ')[0]
+    # end_date = params[:range_datepickr].split(' to ')[1]
+    # raise
     query_dates = "
       SELECT *
       FROM vehicles
@@ -20,6 +22,9 @@ class VehiclesController < ApplicationController
         FROM
       )
     "
+    if category == "" || category =="Tous"
+      category = nil
+    end
 
     query = "capacity <= (?) AND daily_price >= (?) AND daily_price < (?)"
     if category

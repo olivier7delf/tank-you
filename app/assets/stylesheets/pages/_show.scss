@@ -1,0 +1,19 @@
+.description {
+  color: #F4F4F4;
+  p {
+    font-style: italic;
+  }
+}
+
+.name {
+  h2 {
+    color: white;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
