@@ -1,5 +1,4 @@
-<div class="banner d-flex justify-content-center align-items-center" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://cdni.rbth.com/rbthmedia/images/all/2016/03/23/russian_tank_t-90_rtr7i7q_1000.jpg);
-  height: 75vh; background-size: cover; background-position:center;">
+<div class="banner d-flex justify-content-center align-items-center">
   <div class="container">
     <form action="/vehicles" method="GET" class="d-flex align-items-center search-form">
       <label for="start_date" class="">Début:</label>
@@ -18,15 +17,13 @@
     </form>
   </div>
 </div>
-<br>
 <% images = [ "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80","https://images.unsplash.com/photo-1471958680802-1345a694ba6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2864&q=80","https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80","https://images.unsplash.com/photo-1464802686167-b939a6910659?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1466&q=80"] %>
 <div class="cards-area">
   <% @categories.each_with_index do |cat, index| %>
-    <a href="/vehicles?category=espace">
+    <a href="/vehicles?category=<%= cat %>">
       <div class="card-category" style="background: url(<%= images[index] %>); background-position: center; background-size: cover;">
         <%= cat %>
       </div>
     </a>
   <% end %>
 </div>
-
