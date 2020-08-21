@@ -17,3 +17,7 @@ body {
   background-color: $second;
   color: $third;
 }
+
+.container-orders {
+  min-height: calc(100vh - 206px) !important;
+}

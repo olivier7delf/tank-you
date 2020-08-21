@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container container-show">
   <div class="name">
     <div class="secondclass1 text-left">
       <h2><%= @vehicle.name %></h2>
     </div>
     <div class="secondclass2 text-right">
-      <%= link_to 'GO', new_vehicle_order_path(@vehicle), class: "back-button2" %>
+      <%= link_to 'GO', new_vehicle_order_path(@vehicle), class: "go-button" %>
     </div>
   </div>
   <div class="tmp-carousel">

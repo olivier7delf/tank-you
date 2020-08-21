@@ -8,5 +8,5 @@ class Vehicle < ApplicationRecord
   validates :description, presence: true
   validates :capacity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
-  CATEGORIES = ["air", "terre", "mer", "espace"]
+  CATEGORIES = ["Air", "Terre", "Mer", "Espace"]
 end

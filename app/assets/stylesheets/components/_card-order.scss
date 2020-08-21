@@ -1,4 +1,4 @@
-.container {
+.container-orders {
   margin-top: 50px;
   margin-bottom: 50px;
   width: 600px;
@@ -38,14 +38,14 @@
  .card-order-button {
     a {
       text-decoration: none;
-      background-color: $second;
+      background-color: #47BCFF;
       box-shadow: 0 0 15px rgba(0,0,0,0.1);
       font-size: 14px;
       color: white;
       padding: 8px 10px;
       border-radius: 20px;
       &:hover {
-        background-color: $fourth;
+        opacity: 0.65;
       }
     }
  }

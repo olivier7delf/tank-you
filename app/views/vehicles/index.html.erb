@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-index">
   <div >
     <form action="/vehicles" method="GET" class="d-flex align-items-center align-items-center search-form search-filter">
       <div class="search-one">
@@ -45,7 +45,7 @@
           </div>
         <div class="property-description">
           <h5> <%= vehicle.name %> </h5>
-          <p><%= vehicle.category %></p>
+          <p><%= vehicle.category.capitalize %></p>
           <p>Maximum : <%= vehicle.capacity %> personne(s), <%= vehicle.daily_price %> €</p>
         </div>
         <% end %>
