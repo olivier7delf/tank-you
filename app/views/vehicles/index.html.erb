@@ -52,13 +52,13 @@
 
           <div class="property-social-icons", style="background-color:white">
             <% if vehicle.category == "espace" %>
-              <h3> <%= link_to "🛸", new_vehicle_order_path(vehicle) %> </h3>
+              <a href="<%= new_vehicle_order_path(vehicle) %>"><i class="fas fa-rocket"></i></a>
             <% elsif vehicle.category == "mer" %>
-              <h3> <%= link_to "⛵️", new_vehicle_order_path(vehicle) %> </h3>
+              <a href="<%= new_vehicle_order_path(vehicle) %>"><i class="fas fa-ship"></i></a>
             <% elsif vehicle.category == "terre" %>
-              <h3> <%= link_to "🚒", new_vehicle_order_path(vehicle) %> </h3>
+              <a href="<%= new_vehicle_order_path(vehicle) %>"><i class="fas fa-truck-monster"></i></a>
             <% else vehicle.category == "air" %>
-              <h3> <%= link_to "🚁", new_vehicle_order_path(vehicle) %> </h3>
+              <a href="<%= new_vehicle_order_path(vehicle) %>"><i class="fas fa-fighter-jet"></i></a>
             <% end %>
             <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->
           </div>
