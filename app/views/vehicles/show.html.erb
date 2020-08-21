@@ -1,5 +1,12 @@
-<div class="container">
-  <h2><%= @vehicle.name %></h2>
+<div class="container container-show">
+  <div class="name">
+    <div class="secondclass1 text-left">
+      <h2><%= @vehicle.name %></h2>
+    </div>
+    <div class="secondclass2 text-right">
+      <%= link_to 'GO', new_vehicle_order_path(@vehicle), class: "go-button" %>
+    </div>
+  </div>
   <div class="tmp-carousel">
     <% if @vehicle.photos[0] == nil %>
       <%= "Waiting for offical pictures from the owner" %>
@@ -12,7 +19,6 @@
           <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
           <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         </ol>
-
         <div class="carousel-inner">
             <div class="carousel-item active">
               <%= cl_image_tag @vehicle.photos[0].key, class: "carousel-img" %>
@@ -35,18 +41,19 @@
     <% end %>
   </div>
 
-  <p>Capacité totale : <%= @vehicle.capacity %> pilote(s)</p>
-  <p>Prix location journalière : <%= @vehicle.daily_price %> €</p>
-  <p>Description</p>
-  <p><%= @vehicle.description %></p>
+  <div class="container form mt-3">
+    <div class="description">
+      <h5>Capacité totale : <%= @vehicle.capacity %> pilote(s)</h5>
+      <h5>Prix location journalière : <%= @vehicle.daily_price %> €</h5>
+      <h5>Description</h5>
+      <p><%= @vehicle.description %></p>
 
-  <p>Categorie : <%= @vehicle.category %> </p>
-
-  <div class="container d-flex justify-content-center" >
-    <%= link_to "🚀 Back to your search 🚀", vehicles_path, class: "btn btn-warning" %>
+      <h5>Categorie : <%= @vehicle.category %> </h5>
+    </div>
   </div>
-  <div class="container d-flex justify-content-center" >
-    <%= link_to "🔥 GO! 🔥", new_vehicle_order_path(@vehicle), class: "btn btn-warning" %>
+
+  <div class="container form mt-3">
+    <%= link_to '🚀 Back to your search 🚀', vehicles_path, class: "back-button" %>
   </div>
 
 <h2>
@@ -73,3 +80,4 @@
 <% end %>
 
 </div>
+

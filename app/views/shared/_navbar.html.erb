@@ -1,22 +1,29 @@
+
 <% color = action_name == 'home' && controller_name == 'pages' ? 'transparent' : '#051738' %>
-<div class="wrapper">
-  <nav class="navbar navbar-light" style="background-color: <%= color %> !important;">
-    <a class="navbar-logo" href="/" style="background-image: url('logo.png'); height:70px;width:70px; background-size:cover; z-index: 6;"></a>
-    <div class="d-flex">
-      <% if user_signed_in? %>
-        <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #27313F !important; border: none;">
-            My menu
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <%= link_to 'Mes commandes', orders_path, class:"dropdown-item" %>
-            <%= link_to 'Voir les véhicules', vehicles_path, class:"dropdown-item" %>
-          </div>
+<nav class="navbar navbar-light navbar-padding" style="background-color: <%= color %> !important;">
+  <a class="navbar-logo" href="/" style="background-image: asset-url('logo.png'); height:70px;width:70px; background-size:cover; background-position: center; border-radius: 70px;"></a>
+  <div class="d-flex">
+    <% if user_signed_in? %>
+      <div class="dropdown">
+        <button class="dropbtn"><i class="fas fa-fighter-jet"></i></button>
+        <div class="dropdown-content dropdown-menu-right">
+          <%= link_to 'Mes commandes', orders_path, class:"dropdown-item" %>
+          <%= link_to 'Voir les véhicules', vehicles_path, class:"dropdown-item" %>
+          <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete %>
         </div>
-        <%= link_to 'Log out', destroy_user_session_path,method: :delete, class: "bouton" %>
-      <% else %>
-        <%= link_to 'Log in', new_user_session_path, class: "bouton"%>
-      <% end %>
-    </div>
-  </nav>
-</div>
+      </div>
+    <% else %>
+      <%= link_to 'Log in', new_user_session_path, class: "bouton"%>
+    <% end %>
+  </div>
+</nav>
+
+     <!--  <div class="dropdown">
+        <a class="bouton dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fas fa-fighter-jet"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <%= link_to 'Mes commandes', orders_path, class:"dropdown-item" %>
+          <%= link_to 'Voir les véhicules', vehicles_path, class:"dropdown-item" %>
+        </div>
+      </div> -->

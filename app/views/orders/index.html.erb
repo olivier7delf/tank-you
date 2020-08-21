@@ -1,14 +1,21 @@
-<h2 class="text-center pt-3">Résumé de mes commandes</h2>
 
-<div class="container">
+<div class="container container-orders my-0">
+  <h2 class="text-center my-4">Résumé de mes commandes</h2>
   <% @orders.each do |order| %>
     <div class="card-order">
       <%= cl_image_tag order.vehicle.photos[0].key %>
       <div class="card-order-infos">
-        <h2><%= order.vehicle.name %></h2>
-        <p><strong><%= order.total_amount %>€</strong></p>
+        <div class="texte">
+          <h2><%= order.vehicle.name %></h2>
+          <p><strong><%= order.total_amount %>€</strong></p>
+        </div>
+        <div class="card-order-button">
+          <%= link_to "Revoir", vehicle_path(order.vehicle) %>
+        </div>
       </div>
     </div>
     <br>
   <% end %>
 </div>
+
+

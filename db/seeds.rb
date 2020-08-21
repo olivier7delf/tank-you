@@ -18,7 +18,7 @@ puts "Vehicles destroyed!"
 
 
 mode_prod = true
-nb_reviews = mode_prod ? 250 : 25
+nb_reviews = mode_prod ? 400 : 25
 
 puts "Creating users..."
 User.create!(
@@ -49,13 +49,12 @@ User.create!(
   address: "Pandora Jungle",
   phone_number: "Système racinaire en local"
   )
-
 puts "Creating X-wing..."
 vehicle = Vehicle.new(
   name: "X-wing",
   category: "espace",
   daily_price: '18000',
-  description: "Le X-wing, est le chasseur stellaire de George Lucas. N'ayant plus d'idée, Johnny Deep a voulu le louer pour Pirates des Caraïbes 6.",
+  description: "Le X-wing, est le chasseur stellaire de George Lucas. Très utile lors de trafics denses.",
   capacity: '1'
 )
 file0 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597753536/xwingt65_imv6_nazpjt.jpg')
@@ -71,7 +70,7 @@ vehicle = Vehicle.new(
   name: "Batmobile",
   category: "terre",
   daily_price: '11000',
-  description: "La Batmobile est le véhicule de Batman qui est heureux de vous la louer 🙂 et l'homme chauve sourit.",
+  description: "La Batmobile est le véhicule de Bruce Wayne qui est heureux de vous la louer 🙂 et l'homme chauve sourit.",
   capacity: '1'
 )
 file0 = URI.open('https://res.cloudinary.com/dv1x9ot6j/image/upload/v1597752884/batmobile-310x165_2x_y2vptn.jpg')
@@ -114,7 +113,7 @@ vehicle = Vehicle.new(
   name: "Falcon Millenium",
   category: "espace",
   daily_price: '45000',
-  description: "_",
+  description: "Pour les Gryffondors qui en ont marre du balai, rien de mieux que le Faucon Millénaire",
   capacity: '19'
 )
 file0 = URI.open('https://i.pinimg.com/originals/98/4d/1b/984d1b8cb655542254a702ab8b01f80d.jpg')
@@ -125,7 +124,7 @@ vehicle = Vehicle.new(
   name: "Armure d'Iron Man",
   category: "terre",
   daily_price: '105000',
-  description: "_",
+  description: "Merci de penser à mettre au moins un slip avant de l'enfiler !",
   capacity: '1'
 )
 
@@ -302,11 +301,11 @@ if mode_prod
 end
 
 
-beg = ["Wooooaaa ! ", "Enorme  !! ", "J'ai vomi !!! ", "Apprendre ou a laisser ! ", "C'est pas au que vous verrez ca ! ", "Ni au zoo ma couille !"]
+beg = ["Wooooaaa ! ", "Enorme  !! ", "J'ai vomi !!! ", "Apprendre ou a laisser ! ", "C'est pas au Wagon que vous verrez ca ! ", "Ni au zoo ma couille !"]
 middle = ["une expérience unique", "un truc qu'on pas, sauf si on bois pas mal !", "ca vaut bien une claque !", "La  haine mène à la coleur", "Wesh !!"]
 
 
-25.times  {
+nb_reviews.times  {
   u = User.all.sample()
   v = Vehicle.all.sample()
   r = Review.create(
@@ -316,7 +315,6 @@ middle = ["une expérience unique", "un truc qu'on pas, sauf si on bois pas mal 
     vehicle: v
     )
 }
-
 
 # urls = [
 #   "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRaeq8-olJud-aIcd8sxU78rb23lYf5Z2fgoQ&usqp=CAU",
@@ -356,3 +354,4 @@ middle = ["une expérience unique", "un truc qu'on pas, sauf si on bois pas mal 
 #   vehicle.save!
 #   puts "CREATED #{name_vehicule}"
 # end
+

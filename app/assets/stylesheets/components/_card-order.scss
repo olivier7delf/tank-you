@@ -1,6 +1,7 @@
-.container {
-  margin-top: 32px;
-  width: 80%;
+.container-orders {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 600px;
 }
 .card-order {
   overflow: hidden;
@@ -9,6 +10,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 8px;
   img {
     height: 100%;
     width: 120px;
@@ -27,8 +29,26 @@
     margin-top: 8px;
   }
  .card-order-infos {
-    padding: 16px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
   }
+ .card-order-button {
+    a {
+      text-decoration: none;
+      background-color: #47BCFF;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      font-size: 14px;
+      color: white;
+      padding: 8px 10px;
+      border-radius: 20px;
+      &:hover {
+        opacity: 0.65;
+      }
+    }
+ }
 }
 
 

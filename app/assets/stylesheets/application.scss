@@ -10,6 +10,7 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/show";
 
 body {
   margin: 0;
@@ -20,4 +21,7 @@ body {
 .review {
   border: solid 1.5px rgba(0,0,0, 0.05);
   padding: 10px;
+  
+.container-orders {
+  min-height: calc(100vh - 206px) !important;
 }

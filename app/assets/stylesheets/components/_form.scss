@@ -1,10 +1,24 @@
-.form {
-   width: 800px;
-   background-color: $third;
-   padding: 20px 30px;
-   color: white;
-   border-radius: 5px;
+.container-form {
+  margin: 30px 350px;
 }
+.form {
+  background-color: $third;
+  padding: 20px 30px;
+  color: white;
+  border-radius: 5px;
+}
+
+.prix {
+  h3 {
+    margin: 0;
+  }
+  .prix_total {
+    margin-left: 8px;
+    font-size: 25px;
+    font-weight: bolder;
+  }
+}
+
 
 .submit-button {
   display: block;
@@ -14,6 +28,7 @@
   background-color: $first;
   border: none;
   border-radius: 5px;
+  color: white;
   &:hover {
     opacity: 0.80;
   }
@@ -25,12 +40,12 @@
   margin: 12px auto 10px auto;
   padding: 10px 0px;
   background-color: $second;
-  color: white;
+  color: $third;
   text-align: center;
   border-radius: 5px;
   &:hover {
     text-decoration: none;
-    color: white;
     opacity: 0.85;
   }
 }
+

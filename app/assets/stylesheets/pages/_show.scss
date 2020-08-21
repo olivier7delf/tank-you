@@ -1,0 +1,38 @@
+.container-show {
+  width: 55%;
+}
+.description {
+  color: #F4F4F4;
+  p {
+    font-style: italic;
+  }
+}
+
+.name {
+  h2 {
+    color: $third;
+  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+
+.go-button {
+  margin: 12px auto 10px auto;
+  padding: 16px 80px;
+  background-image: url("https://static.lexpress.fr/medias_12191/w_1618,h_905,c_crop,x_68,y_0/w_1000,h_563,c_fill,g_north/v1577966205/le-deplacement-en-vitesse-lumiere-version-google-maps_6242146.jpeg");
+  background-size: 75px;
+  background-size: cover;
+  color: white;
+  font-weight: bolder;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.85;
+  }
+}
