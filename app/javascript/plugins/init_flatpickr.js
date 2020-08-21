@@ -7,6 +7,8 @@ import flatpickr from "flatpickr";
 
 
 const date_pickr = () => {
+  // const truc = document.querySelector(".datepickr.datepickr-corr")
+  // console.log(truc.dataset.params);
   flatpickr(
     ".datepickr", {
     mode: "range",
