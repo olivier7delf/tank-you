@@ -2,7 +2,7 @@
   <div class="container">
 
     <div >
-      <form action="/vehicles" method="GET" class="d-flex align-items-center align-items-center search-form">
+      <form action="/vehicles" method="GET" class="d-flex align-items-center align-items-center search-form-home">
         <div class="search-one">
           <label for="range_datepickr">Dates</label>
           <input type="date" id="search-date" name="range_datepickr" placeholder="<%= params[:range_datepickr] ? params[:range_datepickr] : "dates" %>" class="datepickr datepickr-corr">
@@ -31,7 +31,7 @@
   <% @categories.each_with_index do |cat, index| %>
     <a href="/vehicles?category=<%= cat %>">
       <div class="card-category" style="background: url(<%= images[index] %>); background-position: center; background-size: cover;">
-        <%= cat %>
+        <%= cat.capitalize %>
       </div>
     </a>
   <% end %>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container container-index">
   <div >
     <form action="/vehicles" method="GET" class="d-flex align-items-center align-items-center search-form search-filter">
       <div class="search-one">
@@ -45,19 +45,19 @@
           </div>
         <div class="property-description">
           <h5> <%= vehicle.name %> </h5>
-          <p><%= vehicle.category %></p>
+          <p><%= vehicle.category.capitalize %></p>
           <p>Maximum : <%= vehicle.capacity %> personne(s), <%= vehicle.daily_price %> €</p>
         </div>
         <% end %>
 
           <div class="property-social-icons", style="background-color:white">
-            <% if vehicle.category == "espace" %>
+            <% if vehicle.category == "Espace" %>
               <h3> <%= link_to "🛸", new_vehicle_order_path(vehicle) %> </h3>
-            <% elsif vehicle.category == "mer" %>
+            <% elsif vehicle.category == "Mer" %>
               <h3> <%= link_to "⛵️", new_vehicle_order_path(vehicle) %> </h3>
-            <% elsif vehicle.category == "terre" %>
+            <% elsif vehicle.category == "Terre" %>
               <h3> <%= link_to "🚒", new_vehicle_order_path(vehicle) %> </h3>
-            <% else vehicle.category == "air" %>
+            <% else vehicle.category == "Air" %>
               <h3> <%= link_to "🚁", new_vehicle_order_path(vehicle) %> </h3>
             <% end %>
             <!-- I would usually put multipe divs inside here set to flex. Some people might use Ul li. Multiple Solutions -->

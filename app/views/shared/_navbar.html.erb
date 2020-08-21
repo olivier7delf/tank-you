@@ -1,7 +1,7 @@
 
-<% color = action_name == 'home' && controller_name == 'pages' ? 'transparent' : '#6A9FB9' %>
-<nav class="navbar navbar-light" style="background-color: <%= color %> !important;">
-  <a class="navbar-logo" href="/" style="background-image: url('logo.png'); height:70px;width:70px; background-size:cover; z-index: 6;"></a>
+<% color = action_name == 'home' && controller_name == 'pages' ? 'transparent' : '#051738' %>
+<nav class="navbar navbar-light navbar-padding" style="background-color: <%= color %> !important;">
+  <a class="navbar-logo" href="/" style="background-image: asset-url('logo.png'); height:70px;width:70px; background-size:cover; background-position: center; border-radius: 70px;"></a>
   <div class="d-flex">
     <% if user_signed_in? %>
       <div class="dropdown">
