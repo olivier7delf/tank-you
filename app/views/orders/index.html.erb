@@ -5,10 +5,17 @@
     <div class="card-order">
       <%= cl_image_tag order.vehicle.photos[0].key %>
       <div class="card-order-infos">
-        <h2><%= order.vehicle.name %></h2>
-        <p><strong><%= order.total_amount %>€</strong></p>
+        <div class="texte">
+          <h2><%= order.vehicle.name %></h2>
+          <p><strong><%= order.total_amount %>€</strong></p>
+        </div>
+        <div class="card-order-button">
+          <%= link_to "Revoir", vehicle_path(order.vehicle) %>
+        </div>
       </div>
     </div>
     <br>
   <% end %>
 </div>
+
+
