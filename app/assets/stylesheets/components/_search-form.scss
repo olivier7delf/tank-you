@@ -4,10 +4,21 @@
   padding: 16px;
   height: 50px;
   border-radius: 50px;
-  background-color: $first;
+  background-color: white;
+
+  border: solid 1.5px #47BCFF;
+  box-shadow: 0px 0px 32px #EFF6FB;
+  margin: 0 auto;
+  height: 60px;
+
   label, input, select {
     margin-bottom: 0px;
     margin-right: 8px;
+  }
+
+  input {
+    width: 88px;
+    font-size: 12px;
   }
 }
 
@@ -16,41 +27,54 @@
   color: $third;
   padding: 8px 12px;
   border-radius: 50%;
-  margin-left: 8px;
   border: none;
   color: $third;
-}
-
-.search-filter {
-  margin: 0 auto;
-  height: 60px;
-  input {
-    width: 88px;
-    font-size: 12px;
+  margin: 0px 12px;
+  &:hover {
+    background-color: #47BCFF;
+    color: $second;
+    // $second_hover;
   }
 }
 
-.search-filter-one {
-  margin: 5px;
-  border-radius: 10px;
+.search-filter {
+  width: 80%;
+}
+
+.search-one {
+  margin: 0px;
+  height: 100%;
+    border-radius: 30px;
+    padding: 15px;
   color: black;
   line-height: .9;
   font-size: 12px;
   font-weight: bold;
+  text-align: center;
   input, select {
-    font-size: 16px;
+    font-size: 14px;
     background-color: transparent;
     border: none;
     color: grey;
     font-weight: lighter;
+    text-align: center;
     &:hover {
       font-weight: bold;
     }
     option {
-      background-color: $first;
+      background-color: $bg_light;
       border: none;
+      text-align: center;
     }
   }
+  select {
+      margin-right: 0px;
+    }
+  &:hover {
+    background-color: $bg_light;
+  }
+}
 
-
+#search-date {
+  width: 180px;
 }
