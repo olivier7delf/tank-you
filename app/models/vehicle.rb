@@ -1,5 +1,7 @@
 class Vehicle < ApplicationRecord
+  CATEGORIES = ["air", "terre", "mer", "espace"]
   has_many :orders
+  has_many :reviews
   has_many_attached :photos
 
   validates :name, presence: true
