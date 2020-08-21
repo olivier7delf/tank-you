@@ -6,3 +6,57 @@
 .navbar-logo {
   background-image: url('logo.png')
 }
+
+.fa-fighter-jet {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  display: flex;
+  background-color: $second;
+  color: $first;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 50%;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  float:right;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $second;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: $first;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color:$fourth;
+  color: $first;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: $third;}

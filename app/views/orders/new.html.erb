@@ -1,16 +1,17 @@
-<h2 class="text-center pt-3">Je confirme ma commande</h2>
-
-<div class="container form mt-3">
-  <%= simple_form_for [ @vehicle, @order ] do |f| %>
+<div class="container-form">
+  <%= simple_form_for [ @vehicle, @order ], html: { class: "form"} do |f| %>
+    <h2 class="text-center">Je confirme ma commande</h2>
     <%= f.input :name, :label => "Mon nom", input_html: { value: @user.name } %>
     <%= f.input :email, :label => "Mon email", input_html: { value: @user.email } %>
     <%= f.input :address, :label => "Mon adresse", input_html: { value: @user.address } %>
     <%= f.input :phone_number, :label => "Mon numéro de téléphone", input_html: { value: @user.phone_number } %>
-    <%= f.input :start_date, :label => "Du", as: :date %>
-    <%= f.input :end_date, :label => "Au", as: :date %>
+    <%= f.input :start_date, :label => "Du", as: :date, class: "date"%>
+    <%= f.input :end_date, :label => "Au", as: :date, class: "date"%>
+    <div id="total_price" class="d-flex justify-content-center align-items-center prix"  data-price="<%= @vehicle.daily_price %>">
+      <h3>Prix total : </h3>
+      <span class="prix_total"></span>
+    </div>
     <%= f.submit "🚀C'est parti! 🚀", class: "submit-button" %>
+    <%= link_to 'Revoir mon véhicule', vehicle_path(@vehicle), class: "back-button" %>
   <% end %>
-  <%= link_to 'Revoir mon véhicule', vehicle_path(@vehicle), class: "back-button" %>
 </div>
-
-
