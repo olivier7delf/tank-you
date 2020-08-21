@@ -36,3 +36,17 @@
     opacity: 0.85;
   }
 }
+
+.commentaires {
+  padding: 16px;
+  h2 {
+    margin-bottom: 8px;
+  }
+  .review {
+    margin-bottom: 8px;
+    border: 1px solid rgba(0,0,0,0.9)t;
+    p {
+      margin: 0;
+    }
+  }
+}
