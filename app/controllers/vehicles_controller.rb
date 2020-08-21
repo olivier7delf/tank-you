@@ -22,6 +22,9 @@ class VehiclesController < ApplicationController
         FROM
       )
     "
+    if category == "" || category =="Tous"
+      category = nil
+    end
 
     query = "capacity <= (?) AND daily_price >= (?) AND daily_price < (?)"
     if category
